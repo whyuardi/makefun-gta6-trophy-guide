@@ -3,23 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI: all 55 trophies, tracker &amp; platinum roadmap</title>
+<meta name="description" content="The complete GTA VI trophy guide and tracker: all 55 official trophies, a step-by-step platinum roadmap, filters, a spoiler mode and a checklist that saves in your browser. Works fully offline.">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <div class="hero-text">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">Every trophy, a guide in plain words, and a checklist that remembers where you are. No account, no network — it all runs offline in this page.</p>
+  </div>
+  <div class="progress-box" aria-label="Progress">
+    <p class="progress-line"><strong id="progress-count">0 of 55 earned</strong> <span id="progress-pct">0%</span></p>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+    <p class="grade-counts" id="grade-counts"></p>
+    <p class="est">Platinum estimate: ~200 hours &middot; 1 missable trophy &middot; no online trophies</p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="toolbar" aria-label="Filters">
+  <label class="search">Search <input id="search" type="search" placeholder="Trophy name or word…" autocomplete="off"></label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Type
+    <select id="kind">
+      <option value="all">All types</option>
+      <option value="story">Story</option>
+      <option value="side">Side quests &amp; activities</option>
+      <option value="collectible">Collectibles &amp; exploration</option>
+      <option value="misc">Everything else</option>
+    </select>
+  </label>
+  <label>Status
+    <select id="status">
+      <option value="all">Earned &amp; unearned</option>
+      <option value="unearned">Unearned only</option>
+      <option value="earned">Earned only</option>
+    </select>
+  </label>
+  <label class="spoiler-toggle"><input id="spoilers" type="checkbox" checked> Hide story &amp; hidden trophies</label>
+  <span class="tool-buttons">
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button">Reset</button>
+  </span>
+</section>
+
+<main class="layout">
+  <section class="list-col" aria-label="Trophy checklist">
+    <h2 id="list-heading">Checklist <span id="shown-count"></span></h2>
+    <p class="list-note" id="spoiler-note"></p>
+    <ul class="trophies" id="trophies"></ul>
+  </section>
+  <aside class="detail-col" aria-label="Trophy guide" id="detail"></aside>
+</main>
+
+<section class="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Road to the platinum</h2>
+  <p class="roadmap-intro">Eight phases, in order. Story first, then the side strands, then the long grinds — the platinum pops when the last box is ticked.</p>
+  <ol class="phases" id="phases"></ol>
+</section>
+
+<footer>
+  <p>Trophy names, descriptions and grades are the official list as shown on PlayStation Network, reported 18 November 2026 via Exophase and cross-checked against PSNProfiles and TrueAchievements. Guides are written in our own words; where no guide has confirmed a method yet, the entry says so and labels the approach an estimate. Sources are listed on every trophy.</p>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games or Sony. Progress is stored only in this browser (localStorage) — nothing leaves your device.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
